@@ -1,0 +1,3 @@
+packages:
+  - package: metaplane/dbt_expectations
+    version: 0.10.9   # Version ultra-stable forked from calogica à fin 2025

@@ -1,0 +1,39 @@
+
+version: 2
+
+models:
+  - name: transform
+    description: "test dataA starter dbt model"
+    columns:
+      - name: tpep_pickup_datetime
+        description: "The date and time when the meter was engaged"
+        tests:
+          - not_null
+      - name: tpep_dropoff_datetime
+        description: "The date and time when the meter was disengaged"
+        tests:
+          - not_null
+      - name: passenger_count
+        description: "The number of passengers in the vehicle (driver entered value)"
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              arguments:
+                min_value: 1
+      - name: trip_distance
+        description: "The elapsed trip distance in miles reported by the taximeter"       
+        tests:
+          - not_null
+      - name: total_amount
+        description: "The total amount charged to passengers. Does not include cash tips."
+        tests:
+          - not_null
+      - name: fare_amount
+        description: "The time-and-distance fare calculated by the meter"
+        tests:
+          - not_null  
+      # - name: payment_type
+      #   description: "A numeric code signifying how the passenger paid for the trip"
+      #   tests:
+      #     - not_null
+      

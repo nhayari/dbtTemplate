@@ -1,0 +1,7 @@
+transfprj:
+  target: dev
+  outputs: 
+    dev:
+      type: duckdb
+      path: './output/mdata.db'
+      # database: my_data
